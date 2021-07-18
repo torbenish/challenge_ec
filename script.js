@@ -2,23 +2,23 @@ let emailInput = document.querySelector(".email-input");
 
 function newCustomer() {
   let email = emailInput.value;
-  validateEmail(email);
+  checkEmail(email);
 
-  if (validateEmail(email) === false) {
+  if (checkEmail(email) === false) {
     return (
       (document.querySelector(".email-input").value = ""),
-      alert("Digite um e-mail válido")
+      alert("Digite o e-mail corratamente")
     );
   } else {
     localStorage.setItem("userEmail", email);
     return (
       (document.querySelector(".email-input").value = ""),
-      alert("E-mail salvo com sucesso")
+      alert("E-mail salvo!")
     );
   }
 }
 
-function validateEmail(email) {
+function checkEmail(email) {
   var re = /\S+@\S+\.\S+/;
   return re.test(email);
 }
